@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+from django.contrib.messages import constants as messages
 from pathlib import Path
 from environs import Env
 import os
@@ -50,6 +51,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'allauth',
     'allauth.account',
+    'rosetta',
 ]
 
 SITE_ID = 1
@@ -137,12 +139,23 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+# LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fa'
 
-TIME_ZONE = 'UTC'
+# Rosetta Languages
+LANGUAGES = (
+    ('en', 'English'),
+    ('fa', 'Persian'),
+)
 
+# TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tehran'
+
+# USE_I18N = True
 USE_I18N = True
+USE_L10N = True
 
+# USE_TZ = True
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
@@ -150,6 +163,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+
+LOCALE_PATHS = ('templates/locale',)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -172,3 +187,8 @@ ACCOUNT_AUTHENTICATION_METHOD = 'email'
 # crispy forms setting
 CRISPY_ALLOWED_TEMPLATE_PACK = 'bootstrap5'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
+
+# For messages Framework
+MESSAGES_TAGS = {
+    messages.ERROR: 'danger',
+}
