@@ -8,10 +8,11 @@ from ckeditor.fields import RichTextField
 
 
 class Product(models.Model):
-    title = models.CharField(max_length=100)
-    description = RichTextField()
-    price = models.PositiveIntegerField(default=0)
-    active = models.BooleanField(default=True)
+    title = models.CharField(verbose_name=_('Product Title'), max_length=100)
+    short_description = models.TextField(verbose_name=_('Product Short Description'), blank=True)
+    description = RichTextField(verbose_name=_('Product Description'))
+    price = models.PositiveIntegerField(verbose_name=_('Product Price'), default=0)
+    active = models.BooleanField(verbose_name=_('Active or Hidden'), default=True)
     image = models.ImageField(verbose_name=_('Product Image'), upload_to='product/product_cover/', blank=True)
 
     datetime_created = models.DateTimeField(default=timezone.now)
@@ -37,15 +38,17 @@ class Comment(models.Model):
         ('4', _('Good')),
         ('5', _('Perfect')),
     ]
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='comments', )
-    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='comments', )
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='comments',
+                                verbose_name=_('Product Name'))
+    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='comments',
+                               verbose_name=_('Comment Author'))
     body = models.TextField(verbose_name=_('Your Comment'))
-    stars = models.CharField(max_length=10, choices=PRODUCT_STARS, verbose_name=_('Score'))
+    stars = models.CharField(max_length=10, choices=PRODUCT_STARS, verbose_name=_('Comment Score'))
 
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now=True)
 
-    active = models.BooleanField(default=True)
+    active = models.BooleanField(verbose_name=_('Active or Hidden'), default=True)
 
     # Manager
     objects = models.Manager
