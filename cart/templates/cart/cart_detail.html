@@ -4,6 +4,8 @@
 {% load crispy_forms_tags %}
 {% load comment_tags %}
 {% load i18n %}
+{% load persian_translation_tags %}
+{% load humanize %}
 
 {% block page_title %}
     سبد خرید
@@ -43,7 +45,7 @@
                                                             href="{% url 'cart:cart_remove' item.product_obj.id %}"><i
                                                             class="flaticon flaticon-cross"></i></a></td>
                                                     <td class="product-thumbnail text-left">
-                                                        <img src="assets/img/products/prod-10-70x88.jpg"
+                                                        <img src="{{ item.product_obj.image.url }}"
                                                              alt="Product Thumnail">
                                                     </td>
                                                     <td class="product-name">
@@ -55,7 +57,7 @@
                                                     </td>
                                                     <td class="product-price">
                                                             <span class="product-price-wrapper">
-                                                                <span class="money">{{ item.product_obj.price }} {% trans '$' %}</span>
+                                                                <span class="money">{{ item.product_obj.price|intcomma:False|translate_number }} {% trans '$' %}</span>
                                                             </span>
                                                     </td>
                                                     <td class="product-quantity">
@@ -79,7 +81,7 @@
                                                     </td>
                                                     <td class="product-total-price">
                                                             <span class="product-price-wrapper">
-                                                                <span class="money">{{ item.total_price }} {% trans '$' %}</span>
+                                                                <span class="money">{{ item.total_price|intcomma:False|translate_number }} {% trans '$' %}</span>
                                                             </span>
                                                     </td>
                                                 </tr>
@@ -118,7 +120,7 @@
                                         </div>
                                         <div class="cart-calculator__item--value">
                                                 <span class="product-price-wrapper">
-                                                    <span class="money">{{ cart.get_total_price }} تومان</span>
+                                                    <span class="money">{{ cart.get_total_price|intcomma:False|translate_number }} تومان</span>
                                                 </span>
                                         </div>
                                     </div>

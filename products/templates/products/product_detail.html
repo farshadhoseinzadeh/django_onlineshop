@@ -4,6 +4,9 @@
 {% load crispy_forms_tags %}
 {% load comment_tags %}
 {% load i18n %}
+{% load jalali_tags %}
+{% load persian_translation_tags %}
+{% load humanize %}
 
 {% block page_title %}
     جزئیات محصول {{ product.title }}
@@ -33,9 +36,9 @@
                     <div class="row no-gutters mb--80">
                         <div class="col-12 col-sm-4 product-main-image d-flex align-content-center">
                             {% if product.image %}
-                            <img class="m-auto" style="max-height: 400px;"
-                                 src="{{ product.image.url }}"
-                                 alt="">
+                                <img class="m-auto" style="max-height: 400px;"
+                                     src="{{ product.image.url }}"
+                                     alt="">
                             {% endif %}
                         </div>
                         <div class="col-12 col-sm-8 product-main-details mt-md--50">
@@ -45,9 +48,9 @@
                                     {{ product.description }}
                                 </p>
                                 <div class="my-5 py-5 product-price-wrapper mb--25">
-                                    <span class="money text-success">{{ product.price }} تومان</span>
+                                    <span class="money text-success">{{ product.price|intcomma:False|translate_number }} {% trans '$' %}</span>
                                     <span class="price-separator">-</span>
-                                    <span class="money old-price text-danger">{{ product.price }} تومان</span>
+                                    <span class="money old-price text-danger">{{ product.price|intcomma:False|translate_number }} {% trans '$' %}</span>
                                 </div>
                                 <div class="product-action d-flex align-items-sm-center align-content-center mb--30">
 
@@ -92,7 +95,7 @@
                                     </a>
                                     <a class="m-0 product-data-tab__link nav-link" id="nav-reviews-tab"
                                        data-toggle="tab" href="#nav-reviews" role="tab" aria-selected="true">
-                                        <span>نظرات ({{ product.comments.all|only_active_comment|length }})</span>
+                                        <span>{% trans 'Comments' %} ({{ product.comments.all|only_active_comment|length }})</span>
                                     </a>
                                 </div>
                                 <div class="tab-content product-data-tab__content" id="product-tabContent">
@@ -143,10 +146,10 @@
                                                                     <img src="{% static 'img/others/comment-1.jpg' %}"
                                                                          alt="Review Avatar" class="review__avatar">
                                                                     <div>
-                                                                        <div class="review__meta">
-                                                                            <span class="review__published-date">{{ comment.datetime_created }}</span>
+                                                                        <div class="review__meta" dir="ltr">
+                                                                            <span class="review__published-date">{{ comment.datetime_created|to_jalali:'%Y/%m/%d _ %H:%M:%S'|translate_number }}</span>
                                                                             <span class="review__dash">-</span>
-                                                                            <strong class="review__author px-4">{{ comment.author }}</strong>
+                                                                            <strong class="review__author px-4">{{ comment.author.username }}</strong>
                                                                         </div>
                                                                         <div class="product-rating">
                                                                             <div class="m-0 star-rating star-five">

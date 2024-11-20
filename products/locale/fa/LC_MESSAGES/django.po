@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-19 15:28+0330\n"
+"POT-Creation-Date: 2024-11-20 10:03+0330\n"
 "PO-Revision-Date: 2024-11-19 15:34+0330\n"
 "Last-Translator:   <feri@feri.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,60 +19,74 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.10.1\n"
 
-#: .\models.py:30
+#: .\models.py:13
+msgid "Product Image"
+msgstr ""
+
+#: .\models.py:32
 msgid "Very Bad"
 msgstr "خیلی بد"
 
-#: .\models.py:31
+#: .\models.py:33
 msgid "Bad"
 msgstr "بد"
 
-#: .\models.py:32
+#: .\models.py:34
 msgid "Normal"
 msgstr "معمولی"
 
-#: .\models.py:33
+#: .\models.py:35
 msgid "Good"
 msgstr "خوب"
 
-#: .\models.py:34
+#: .\models.py:36
 msgid "Perfect"
 msgstr "عالی"
 
-#: .\models.py:38
+#: .\models.py:40
 msgid "Your Comment"
 msgstr "دیدگاه شما"
 
-#: .\models.py:39
+#: .\models.py:41
 msgid "Score"
 msgstr "امتیاز شما"
 
-#: .\templates\products\product_detail.html:74
+#: .\templates\products\product_detail.html:50
+#: .\templates\products\product_detail.html:52
+#: .\templates\products\product_list.html:73
+#: .\templates\products\product_list.html:76
+msgid "$"
+msgstr "تومان"
+
+#: .\templates\products\product_detail.html:67
 msgid "add to cart"
 msgstr "افزودن به سبد خرید"
 
-#: .\templates\products\product_detail.html:90
+#: .\templates\products\product_detail.html:73
 msgid "categories"
 msgstr "دسته بندی ها"
 
-#: .\templates\products\product_detail.html:106
+#: .\templates\products\product_detail.html:89
 msgid "Product Description"
 msgstr "توضیحات محصول"
 
-#: .\templates\products\product_detail.html:191
-#| msgid "Your Comment"
+#: .\templates\products\product_detail.html:97
+msgid "Comments"
+msgstr "دیدگاه ها"
+
+#: .\templates\products\product_detail.html:174
 msgid "Write your comment"
 msgstr "دیدگاه خود را بنویسید"
 
-#: .\templates\products\product_detail.html:197
+#: .\templates\products\product_detail.html:180
 msgid "Submit"
 msgstr "ارسال"
 
-#: .\templates\products\product_detail.html:201
+#: .\templates\products\product_detail.html:184
 msgid "To write your comment please "
 msgstr "لطفا نظر خود را بنویسید"
 
-#: .\templates\products\product_detail.html:202
+#: .\templates\products\product_detail.html:185
 msgid "Login"
 msgstr "ورود"
 
