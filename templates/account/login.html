@@ -1,5 +1,5 @@
 {% extends '_base.html' %}
-
+{% load i18n %}
 {% load crispy_forms_tags %}
 
 {% block page_title %}
@@ -10,7 +10,7 @@
     <form action="" method="post">
         {% csrf_token %}
         {{ form|crispy }}
-        <input type="submit" value="Login">
+        <input type="submit" value="{% trans 'Login' %}">
     </form>
 {% endblock %}
 

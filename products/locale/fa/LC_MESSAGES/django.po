@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-12 17:22+0330\n"
-"PO-Revision-Date: 2024-11-12 18:06+0330\n"
+"POT-Creation-Date: 2024-11-19 15:28+0330\n"
+"PO-Revision-Date: 2024-11-19 15:34+0330\n"
 "Last-Translator:   <feri@feri.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -47,14 +47,35 @@ msgstr "دیدگاه شما"
 msgid "Score"
 msgstr "امتیاز شما"
 
-#: .\templates\products\product_detail.html:70
+#: .\templates\products\product_detail.html:74
 msgid "add to cart"
 msgstr "افزودن به سبد خرید"
 
-#: .\templates\products\product_detail.html:74
+#: .\templates\products\product_detail.html:90
 msgid "categories"
 msgstr "دسته بندی ها"
 
-#: .\templates\products\product_detail.html:90
+#: .\templates\products\product_detail.html:106
 msgid "Product Description"
 msgstr "توضیحات محصول"
+
+#: .\templates\products\product_detail.html:191
+#| msgid "Your Comment"
+msgid "Write your comment"
+msgstr "دیدگاه خود را بنویسید"
+
+#: .\templates\products\product_detail.html:197
+msgid "Submit"
+msgstr "ارسال"
+
+#: .\templates\products\product_detail.html:201
+msgid "To write your comment please "
+msgstr "لطفا نظر خود را بنویسید"
+
+#: .\templates\products\product_detail.html:202
+msgid "Login"
+msgstr "ورود"
+
+#: .\views.py:43
+msgid "Comment successfully created."
+msgstr "نظر شما با موفقیت ثبت شد."

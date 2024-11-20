@@ -1,6 +1,9 @@
 from django.views import generic
 from django.shortcuts import get_object_or_404, reverse
+from django.contrib import messages
+from django.utils.translation import gettext as _
 
+from cart.forms import AddToCartProductForm
 from .models import Product, Comment
 from .forms import CommentForm
 
@@ -21,6 +24,7 @@ class ProductDetailView(generic.DetailView):
     def get_context_data(self, **kwargs):
         context_object_name = super().get_context_data(**kwargs)
         context_object_name['comment_form'] = CommentForm()
+        context_object_name['add_to_cart_product_form'] = AddToCartProductForm()
         return context_object_name
 
 
@@ -35,5 +39,7 @@ class CommentCreateView(generic.CreateView):
         product_id = self.kwargs['product_id']
         product = get_object_or_404(Product, id=product_id)
         obj.product = product
+
+        messages.success(self.request, _('Comment successfully created.'))
 
         return super().form_valid(form)
