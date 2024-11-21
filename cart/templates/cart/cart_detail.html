@@ -12,10 +12,10 @@
 {% endblock %}
 
 {% block page_content %}
-    <!-- Breadcrumb area Start -->
+
     {% trans 'Cart' as header_name %}
     {% include 'breadcrumb_area.html' with header_name=header_name %}
-    <!-- Breadcrumb area End -->
+
 
     <!-- Main Content Wrapper Start -->
     <div class="main-content-wrapper">
@@ -57,7 +57,7 @@
                                                     </td>
                                                     <td class="product-price">
                                                             <span class="product-price-wrapper">
-                                                                <span class="money">{{ item.product_obj.price|intcomma:False|translate_number }} {% trans '$' %}</span>
+                                                                <span class="money">{{ item.product_obj.price|intcomma:False|translate_number }} {% trans 'Toman' %}</span>
                                                             </span>
                                                     </td>
                                                     <td class="product-quantity">
@@ -81,7 +81,7 @@
                                                     </td>
                                                     <td class="product-total-price">
                                                             <span class="product-price-wrapper">
-                                                                <span class="money">{{ item.total_price|intcomma:False|translate_number }} {% trans '$' %}</span>
+                                                                <span class="money">{{ item.total_price|intcomma:False|translate_number }} {% trans 'Toman' %}</span>
                                                             </span>
                                                     </td>
                                                 </tr>
@@ -95,16 +95,23 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row no-gutters border-top pt--20 mt--20">
-                            <div class="col-sm-6 text-sm-right">
-                                <button type="submit" class="cart-form__btn">خالی کردن سبد خرید</button>
+                        {% if cart|length %}
+                            <div class="row no-gutters border-top pt--20 mt--20">
+                                <div class="col-sm-6 text-sm-right">
+                                    <form action="{% url 'cart:cart_clear' %}" method="post">
+                                        {% csrf_token %}
+                                        <button type="submit" class="cart-form__btn">
+                                            {% trans 'Empty Cart' %}
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
-                        </div>
+                        {% endif %}
                     </div>
                     <div class="col-lg-4">
                         <div class="cart-collaterals">
                             <div class="cart-totals">
-                                <h5 class="font-size-14 font-bold mb--15">مجموع</h5>
+                                <h5 class="font-size-14 font-bold mb--15">{% trans 'Sum' %}</h5>
                                 <div class="cart-calculator">
                                     {#                                    <div class="cart-calculator__item">#}
                                     {#                                        <div class="cart-calculator__item--head">#}
@@ -116,18 +123,19 @@
                                     {#                                    </div>#}
                                     <div class="cart-calculator__item order-total">
                                         <div class="cart-calculator__item--head">
-                                            <span>جمع کل</span>
+                                            <span>{% trans 'Sum' %}</span>
                                         </div>
                                         <div class="cart-calculator__item--value">
                                                 <span class="product-price-wrapper">
-                                                    <span class="money">{{ cart.get_total_price|intcomma:False|translate_number }} تومان</span>
+                                                    <span class="money">{{ cart.get_total_price|intcomma:False|translate_number }} {% trans 'Toman' %}</span>
                                                 </span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <a href="checkout.html" class="btn btn-fullwidth btn-bg-red btn-color-white btn-hover-2">
-                                ثبت سفارش
+                            <a href="{% url 'order_create' %}"
+                               class="btn btn-fullwidth btn-bg-red btn-color-white btn-hover-2">
+                                {% trans 'Checkout' %}
                             </a>
                         </div>
                     </div>

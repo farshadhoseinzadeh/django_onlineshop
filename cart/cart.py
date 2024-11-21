@@ -74,3 +74,8 @@ class Cart:
         # products = Product.objects.filter(id__in=product_ids)
         # return sum(product.price for product in products)
         return sum(item['quantity'] * item['product_obj'].price for item in self.cart.values())
+
+    def is_empty(self):
+        if self.cart:
+            return False
+        return True

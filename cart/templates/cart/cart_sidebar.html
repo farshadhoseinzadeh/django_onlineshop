@@ -25,7 +25,7 @@
                                 </a>
                             </span>
                                 <span class="mini-cart__product__quantity">
-                                <span>{{ item.product_obj.price|intcomma:False|translate_number }} {% trans '$' %}</span> &#215; <span>{{ item.quantity|intcomma:False|translate_number }}</span>
+                                <span>{{ item.product_obj.price|intcomma:False|translate_number }} {% trans 'Toman' %}</span> &#215; <span>{{ item.quantity|intcomma:False|translate_number }}</span>
                             </span>
                             </div>
                         </li>
@@ -33,11 +33,15 @@
                 </ul>
                 <div class="mini-cart__total">
                     <span>{% trans 'Total Price' %}</span>
-                    <span class="ammount">{{ cart.get_total_price|intcomma:False|translate_number }} {% trans '$' %}</span>
+                    <span class="ammount">{{ cart.get_total_price|intcomma:False|translate_number }} {% trans 'Toman' %}</span>
                 </div>
                 <div class="mini-cart__buttons">
-                    <a href="{% url 'cart:cart_detail' %}" class="btn btn-fullwidth btn-bg-sand mb--20">{% trans 'Go to cart' %}</a>
-                    <a href="checkout.html" class="btn btn-fullwidth btn-bg-sand">{% trans 'Checkout' %}</a>
+                    <a href="{% url 'cart:cart_detail' %}"
+                       class="btn btn-fullwidth btn-bg-sand mb--20">{% trans 'Go to cart' %}</a>
+                    {% if cart|length %}
+                        <a href="{% url 'order_create' %}"
+                           class="btn btn-fullwidth btn-bg-sand">{% trans 'Checkout' %}</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
