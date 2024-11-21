@@ -13,21 +13,13 @@
 {% endblock %}
 
 {% block page_content %}
-    <!-- Preloader Start -->
-    <div class="ShoppingYar-preloader active">
-        <div class="ShoppingYar-preloader-inner h-100 d-flex align-items-center justify-content-center">
-            <div class="ShoppingYar-child ShoppingYar-bounce1"></div>
-            <div class="ShoppingYar-child ShoppingYar-bounce2"></div>
-            <div class="ShoppingYar-child zuka-bounce3"></div>
-        </div>
-    </div>
-    <!-- Preloader End -->
+
+    {% include 'preloader.html' %}
 
     <!-- Main Wrapper Start -->
     <div class="wrapper">
-        <!-- Breadcrumb area Start -->
+
         {% include 'breadcrumb_area.html' with header_name=product.title %}
-        <!-- Breadcrumb area End -->
 
         <!-- Main Content Wrapper Start -->
         <div class="main-content-wrapper">
@@ -48,9 +40,9 @@
                                     {{ product.short_description|linebreaks|truncatechars:300 }}
                                 </p>
                                 <div class="my-5 py-5 product-price-wrapper mb--25">
-                                    <span class="money text-success">{{ product.price|intcomma:False|translate_number }} {% trans '$' %}</span>
+                                    <span class="money text-success">{{ product.price|intcomma:False|translate_number }} {% trans 'Toman' %}</span>
                                     <span class="price-separator">-</span>
-                                    <span class="money old-price text-danger">{{ product.price|intcomma:False|translate_number }} {% trans '$' %}</span>
+                                    <span class="money old-price text-danger">{{ product.price|intcomma:False|translate_number }} {% trans 'Toman' %}</span>
                                 </div>
                                 <div class="product-action d-flex align-items-sm-center align-content-center mb--30">
 
@@ -200,34 +192,6 @@
         </div>
         <!-- Main Content Wrapper End -->
 
-        <!-- Footer Start-->
-        <footer class="footer">
-            <div class="footer-top bg-color ptb--50" data-bg-color="#f6f6f6">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-9 text-center">
-                            <div class="footer-widget mb--50">
-                                <div class="textwidget">
-                                    <img src="assets/img/codingyar_logo.png" alt="Logo">
-                                </div>
-                            </div>
-                            <div class="footer-widget mb--50 pb--1">
-                                <ul class="footer-menu">
-                                    <li><a href="">درباره ما</a></li>
-                                    <li><a href="">قوانین و مقررات</a></li>
-                                    <li><a href="">تماس با ما</a></li>
-                                </ul>
-                            </div>
-                            <div class="footer-widget">
-                                Codingyar.com © | all rights reserved
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- Footer End-->
-
         <!-- Search form Popup Start -->
         <div class="searchform__popup" id="searchForm">
             <a href="#" class="btn-close"><i class="flaticon flaticon-cross"></i></a>
@@ -243,9 +207,7 @@
         </div>
         <!-- Search form Popup End -->
 
-        <!-- Mini Cart Start -->
         {% include 'cart/cart_sidebar.html' %}
-        <!-- Mini Cart End -->
 
         <!-- Global Overlay Start -->
         <div class="ShoppingYar-global-overlay"></div>

@@ -1,0 +1,117 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-20 18:40+0330\n"
+"PO-Revision-Date: 2024-11-20 18:42+0330\n"
+"Last-Translator: rana Hosseinzadeh <feri@feri.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Translated-Using: django-rosetta 0.10.1\n"
+
+#: .\forms.py:14 .\templates\orders\order_create.html:80
+msgid "If you have any notes please enter here, otherwise leave it empty."
+msgstr "اگر یادداشتی دارید، اینجا بنویسید. در غیر اینصورت خالی بگذارید."
+
+#: .\models.py:7
+msgid "User"
+msgstr "کاربر"
+
+#: .\models.py:8
+msgid "Is Paid?"
+msgstr "پرداخت شده؟"
+
+#: .\models.py:10 .\templates\orders\order_create.html:44
+msgid "First Name"
+msgstr "نام"
+
+#: .\models.py:11 .\templates\orders\order_create.html:51
+msgid "Last Name"
+msgstr "نام خانوادگی"
+
+#: .\models.py:12 .\templates\orders\order_create.html:68
+msgid "Phone Number"
+msgstr "تلفن همراه"
+
+#: .\models.py:13 .\templates\orders\order_create.html:60
+msgid "Address"
+msgstr "آدرس"
+
+#: .\models.py:14
+msgid "Order Notes"
+msgstr "یادداشت سفارش"
+
+#: .\models.py:16
+msgid "Date & Time Created"
+msgstr "تاریخ و ساعت ایجاد"
+
+#: .\models.py:17
+msgid "Date & Time Modified"
+msgstr "تاریخ و ساعت ویرایش"
+
+#: .\templates\orders\order_create.html:9
+#: .\templates\orders\order_create.html:15
+msgid "Order"
+msgstr "ثبت سفارش"
+
+#: .\templates\orders\order_create.html:28
+msgid "Order Details"
+msgstr "جزئیات سفارش"
+
+#: .\templates\orders\order_create.html:77
+#, fuzzy
+#| msgid "Order Notes"
+msgid "Your Notes"
+msgstr "یادداشت سفارش"
+
+#: .\templates\orders\order_create.html:84
+msgid "Submit"
+msgstr "ارسال"
+
+#: .\templates\orders\order_create.html:93
+msgid "Your Order"
+msgstr "سفارش شما"
+
+#: .\templates\orders\order_create.html:99
+msgid "Product"
+msgstr "محصول"
+
+#: .\templates\orders\order_create.html:100
+msgid "Total Price"
+msgstr "قیمت نهایی"
+
+#: .\templates\orders\order_create.html:110
+#: .\templates\orders\order_create.html:119
+msgid "Toman"
+msgstr "تومان"
+
+#: .\templates\orders\order_create.html:117
+msgid "Sum"
+msgstr "مجموع"
+
+#: .\templates\orders\order_create.html:126
+msgid "Payment Method"
+msgstr "نحوه پرداخت"
+
+#: .\templates\orders\order_create.html:133
+msgid "Zarinpal Online Gateway"
+msgstr "درگاه آنلاین زرین پال"
+
+#: .\views.py:17
+msgid "You cannot proceed to the checkout page because your cart is empty."
+msgstr ""
+"شما نمیتوانید به صفحه سفارشات بروید! برای اینکه سبد خرید شما خالی است."
+
+#: .\views.py:43
+msgid "Thank you! Your order has been successfully placed."
+msgstr "با تشکر! سفارش شما با موفقیت ثبت شد."
